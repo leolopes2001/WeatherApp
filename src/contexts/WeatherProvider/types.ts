@@ -25,6 +25,8 @@ export interface iWeatherContext {
   openSideBar: () => void;
   closeSideBar: () => void;
   isActiveSideBar: boolean;
+  isFahrenheit: boolean;
+  changeFahrenheitState: (isActive: boolean) => void;
 }
 
 export interface iDataOfNextDays {

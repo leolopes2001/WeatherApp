@@ -1,7 +1,13 @@
 import styled, { css } from 'styled-components';
 
 interface iButtonVariant {
-  variant: 'openSideBar' | 'searchForPlace' | 'yourLocation' | 'closeSideBar';
+  variant:
+    | 'openSideBar'
+    | 'searchForPlace'
+    | 'yourLocation'
+    | 'closeSideBar'
+    | 'fahrenheitAndCelsius';
+  isActive?: boolean;
 }
 
 const ButtonVariant = {
@@ -31,7 +37,7 @@ const ButtonVariant = {
     height: 40px;
     background: rgba(110, 112, 122, 0.3);
     border-radius: 50%;
-    
+
     & > img {
       border-radius: 50%;
       width: 22px;
@@ -43,6 +49,25 @@ const ButtonVariant = {
     width: 14px;
     height: 14px;
     background: #e7e7eb;
+  `,
+
+  fahrenheitAndCelsius: css`
+    margin-left: 12px;
+    width: 40px;
+    height: 40px;
+    background: #585676;
+    border-radius: 54px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #e7e7eb;
+
+    ${({ isActive }: any) =>
+      isActive &&
+      css`
+        background: #e7e7eb;
+        color: #110e3c;
+      `}
   `,
 };
 

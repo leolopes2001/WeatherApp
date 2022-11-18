@@ -16,7 +16,6 @@ import { formatResponseDataOfNextDays } from './utils';
 const WeatherContext = createContext<iWeatherContext>({} as iWeatherContext);
 
 export const WeatherProvider = ({ children }: iDefaultContextProps) => {
-  // const [currentDate] = useState<string>("");
   const [currentDate] = useState(new Date().toDateString());
 
   const [daysOfWeek, setDaysOfWeek] = useState<iDaysOfWeek[]>([]);
@@ -32,12 +31,8 @@ export const WeatherProvider = ({ children }: iDefaultContextProps) => {
 
   const [isActiveSideBar, setIsActiveSideBar] = useState(false);
 
-  const changeToCelsius = () => {
-    setIsFahrenheit(false);
-  };
-
-  const changeToFahrenheit = () => {
-    setIsFahrenheit(true);
+  const changeFahrenheitState = (isActive: boolean): void => {
+    setIsFahrenheit(isActive);
   };
 
   const openSideBar = (): void => {
@@ -138,6 +133,8 @@ export const WeatherProvider = ({ children }: iDefaultContextProps) => {
         isActiveSideBar,
         openSideBar,
         closeSideBar,
+        changeFahrenheitState,
+        isFahrenheit,
       }}
     >
       {children}
