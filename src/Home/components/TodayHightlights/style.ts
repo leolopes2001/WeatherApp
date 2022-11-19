@@ -44,8 +44,11 @@ export const List = styled.ul`
     grid-template-rows: 204px 159px;
   }
 `;
+interface iWindStatusCard {
+  degWind: number;
+}
 
-export const WindStatusCard = styled.li`
+export const WindStatusCard = styled.li<iWindStatusCard>`
   width: 328px;
   height: 204px;
   background: #1e213a;
@@ -90,11 +93,14 @@ export const WindStatusCard = styled.li`
     width: 29.49px;
     height: 29.49px;
     background: rgba(255, 255, 255, 0.3);
-    transform: rotate(-150deg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    img {
+      ${({ degWind }) => `transform: rotate(${degWind}deg)`}
+    }
   }
 `;
 interface iHumidity {

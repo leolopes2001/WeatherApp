@@ -16,6 +16,7 @@ import {
 import { useWeather } from '../../../contexts/WeatherProvider';
 import { useEffect, useState } from 'react';
 import { ImageBack } from '../../../components/ImageBack';
+import celsiusToFahrenheit from '../../utils/celsiusToFahrenheit';
 
 export const SectionCurrentDay = () => {
   const {
@@ -24,9 +25,15 @@ export const SectionCurrentDay = () => {
     changePosition,
     openSideBar,
     closeSideBar,
+    isFahrenheit,
   } = useWeather();
 
   const [date, setDate] = useState<string>('');
+
+  const tempCelsius = currentDayWeather?.main?.temp;
+  const currentWeather = isFahrenheit
+    ? celsiusToFahrenheit(tempCelsius)
+    : tempCelsius;
 
   useEffect(() => {
     const arrDate = currentDate.split(' ');
@@ -70,10 +77,8 @@ export const SectionCurrentDay = () => {
 
       <ContentContainer>
         <Title tag='h3' variant='title1'>
-          {!!currentDayWeather?.main
-            ? Math.floor(currentDayWeather?.main?.temp)
-            : '30'}
-          <span>°C</span>
+          {!!currentDayWeather?.main ? Math.floor(currentWeather) : '30'}
+          <span>{isFahrenheit ? '°F' : '°C'}</span>
         </Title>
         <Title tag='h4' variant='title2'>
           {currentDayWeather?.weather

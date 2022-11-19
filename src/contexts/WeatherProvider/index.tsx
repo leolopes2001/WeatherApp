@@ -106,10 +106,8 @@ export const WeatherProvider = ({ children }: iDefaultContextProps) => {
         const list = await getDataOfNextDays(lat, lon);
         const dataDay = await getDataOfCurrentDay(lat, lon);
 
-        console.log(dataDay);
         const data = formatResponseDataOfNextDays(list);
 
-        console.log(dataDay);
         seCurrentDayWeather(dataDay);
         setNextDaysData(data);
       } catch (error) {

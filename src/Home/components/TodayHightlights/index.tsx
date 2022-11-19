@@ -1,5 +1,6 @@
 import navigation from '../../../assets/wheater/navigation.svg';
 import { useWeather } from '../../../contexts/WeatherProvider';
+import { getWindDirection } from '../../utils/celsiusToFahrenheit';
 import {
   SectionStyled,
   List,
@@ -19,7 +20,9 @@ export const TodayHightlights = () => {
         <Title>Today's Hightlights</Title>
 
         <List>
-          <WindStatusCard>
+          <WindStatusCard
+            degWind={currentDayWeather.wind ? currentDayWeather?.wind.deg : 100}
+          >
             <h4>Wind status</h4>
             <h5>
               {currentDayWeather?.wind
@@ -31,7 +34,11 @@ export const TodayHightlights = () => {
               <div className='background-img'>
                 <img src={navigation} alt='navigation' />
               </div>
-              <p>WSW</p>
+              <p>
+                {getWindDirection(
+                  currentDayWeather?.wind ? currentDayWeather.wind.deg : 100
+                )}
+              </p>
             </div>
           </WindStatusCard>
 

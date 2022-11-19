@@ -11,13 +11,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { getLocationByName } from '../../../../service/getLocationByName';
 import { AxiosError } from 'axios';
 import { iApiError } from '../../../../@types';
+import { toast } from 'react-toastify';
 
 const schema = yup.object({
   nameForSearch: yup.string().required(),
 });
 export const SideBarSearch = () => {
-  const { changePosition, isActiveSideBar,closeSideBar } =
-    useWeather();
+  const { changePosition, isActiveSideBar, closeSideBar } = useWeather();
 
   const { register, handleSubmit, reset } = useForm({
     resolver: yupResolver(schema),
@@ -28,7 +28,7 @@ export const SideBarSearch = () => {
       const data = await getLocationByName(formData.nameForSearch);
 
       if (!data.length) {
-        console.log('Error');
+        toast.error('Nenhuma cidade encontrada!');
         return;
       }
       const { lat, lon } = data[0];
@@ -37,8 +37,8 @@ export const SideBarSearch = () => {
       closeSideBar();
     } catch (err) {
       const requestError = err as AxiosError<iApiError>;
-      console.log(requestError);
       console.log(requestError.response?.data.error);
+      toast.error('Algo deu errado!');
     }
   };
 

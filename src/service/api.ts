@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-export const key = 'fe796e8e76359f46faae8d1ff6311969';
-
 export const api = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5',
   timeout: 6000,
   params: {
-    appid: key,
+    appid: 'fe796e8e76359f46faae8d1ff6311969',
     units: 'metric',
   },
 });
@@ -16,9 +14,6 @@ export const apiGeocoding = axios.create({
   timeout: 6000,
   params: {
     limit: '5',
-    appid: key,
+    appid: 'fe796e8e76359f46faae8d1ff6311969',
   },
 });
-
-
-
