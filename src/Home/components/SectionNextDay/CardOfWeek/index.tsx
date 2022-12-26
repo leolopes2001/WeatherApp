@@ -1,4 +1,4 @@
-import HeavyRain from '../../../../assets/wheater/HeavyRain.png';
+import HeavyRain from '../../../../assets/weather/HeavyRain.png';
 import { ImageBack } from '../../../../components/ImageBack';
 import { Text } from '../../../../components/Text';
 import { Title } from '../../../../components/Title';

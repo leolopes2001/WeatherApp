@@ -1,4 +1,4 @@
-import navigation from '../../../assets/wheater/navigation.svg';
+import navigation from '../../../assets/weather/navigation.svg';
 import { useWeather } from '../../../contexts/WeatherProvider';
 import { getWindDirection } from '../../utils/celsiusToFahrenheit';
 import {
@@ -70,7 +70,7 @@ export const TodayHightlights = () => {
             <h4>Visibility</h4>
             <h5>
               {currentDayWeather?.visibility
-                ? currentDayWeather?.visibility * 0.00062
+                ? (currentDayWeather?.visibility * 0.00062).toFixed(2)
                 : '6,4'}
               <span>miles</span>
             </h5>

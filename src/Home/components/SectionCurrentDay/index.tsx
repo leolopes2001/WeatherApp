@@ -1,7 +1,7 @@
-import CloudBackgrond from '../../../assets/wheater/Cloud-background.png';
-import Sun from '../../../assets/wheater/LightCloud.png';
-import LocationPointer from '../../../assets/wheater/icons8-marcador-24.png';
-import YourLocation from '../../../assets/wheater/gps.png';
+import CloudBackgrond from '../../../assets/weather/Cloud-background.png';
+import Sun from '../../../assets/weather/LightCloud.png';
+import LocationPointer from '../../../assets/weather/icons8-marcador-24.png';
+import YourLocation from '../../../assets/weather/gps.png';
 
 import { Button } from '../../../components/Button';
 import { Text } from '../../../components/Text';
