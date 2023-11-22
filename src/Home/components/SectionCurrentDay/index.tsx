@@ -50,55 +50,59 @@ export const SectionCurrentDay = () => {
 
   return (
     <SectionStyled>
-      <ButtonContainer>
-        <Button variant='openSideBar' onClick={openSideBar}>
-          Search For Place
-        </Button>
-        <Button variant='yourLocation'>
-          <img
-            src={YourLocation}
-            alt='Gps location'
-            onClick={getPosition}
-            title='Previsão do tempo pela sua localização.'
+      <div>
+        <ButtonContainer>
+          <Button variant='openSideBar' onClick={openSideBar}>
+            Search For Place
+          </Button>
+          <Button variant='yourLocation'>
+            <img
+              src={YourLocation}
+              alt='Gps location'
+              onClick={getPosition}
+              title='Previsão do tempo pela sua localização.'
+            />
+          </Button>
+        </ButtonContainer>
+
+        <ImageContainer>
+          <img src={CloudBackgrond} alt='' />
+          <ImageBack
+            imgId={
+              currentDayWeather.weather ? currentDayWeather?.weather[0].icon : ''
+            }
+            src={Sun}
+            variant='currentDay'
           />
-        </Button>
-      </ButtonContainer>
+        </ImageContainer>
+        <div style={{ height: "400px" }}>
 
-      <ImageContainer>
-        <img src={CloudBackgrond} alt='' />
-        <ImageBack
-          imgId={
-            currentDayWeather.weather ? currentDayWeather?.weather[0].icon : ''
-          }
-          src={Sun}
-          variant='currentDay'
-        />
-      </ImageContainer>
-
-      <ContentContainer>
-        <Title tag='h3' variant='title1'>
-          {!!currentDayWeather?.main ? Math.floor(currentWeather) : '30'}
-          <span>{isFahrenheit ? '°F' : '°C'}</span>
-        </Title>
-        <Title tag='h4' variant='title2'>
-          {currentDayWeather?.weather
-            ? currentDayWeather?.weather[0].main
-            : 'Shower'}
-        </Title>
-
-        <div>
-          <Text variant='text1'>Today</Text>
-          <Text variant='text1'>.</Text>
-          <Text variant='text1'>{date}</Text>
         </div>
-
-        <div>
-          <img src={LocationPointer} alt='Location Pointer' />
-          <Title tag='h2' variant='title3'>
-            {currentDayWeather?.name}
+        <ContentContainer>
+          <Title tag='h3' variant='title1'>
+            {!!currentDayWeather?.main ? Math.floor(currentWeather) : '30'}
+            <span>{isFahrenheit ? '°F' : '°C'}</span>
           </Title>
-        </div>
-      </ContentContainer>
+          <Title tag='h4' variant='title2'>
+            {currentDayWeather?.weather
+              ? currentDayWeather?.weather[0].main
+              : 'Shower'}
+          </Title>
+
+          <div>
+            <Text variant='text1'>Today</Text>
+            <Text variant='text1'>.</Text>
+            <Text variant='text1'>{date}</Text>
+          </div>
+
+          <div>
+            <img src={LocationPointer} alt='Location Pointer' />
+            <Title tag='h2' variant='title3'>
+              {currentDayWeather?.name}
+            </Title>
+          </div>
+        </ContentContainer>
+      </div>
     </SectionStyled>
   );
 };

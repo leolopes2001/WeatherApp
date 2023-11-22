@@ -1,24 +1,28 @@
 import styled from 'styled-components';
 
 export const SectionStyled = styled.section`
-  height: 100vh;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.primary};
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
 
-  width: 100%;
+  > div{
+    overflow: hidden;
+    width: 100%;
+    padding: 1rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
 
   @media (min-width: 900px) {
     max-width: 500px;
+    grid-column: 1/2;
+    grid-row: 1/3;
   }
   @media (min-width: 1300px) {
-    grid-column: 1;
-    grid-row: 0/4;
+    grid-column: 1/2;
+    grid-row: 1/3;
   }
 `;
 

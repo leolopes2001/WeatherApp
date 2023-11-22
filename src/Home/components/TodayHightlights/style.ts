@@ -21,7 +21,9 @@ export const SectionStyled = styled.section`
   align-items: center;
 
   @media (min-width: 900px) {
-    grid-column: 1/3;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    
   }
 
   @media (min-width: 1300px) {
@@ -39,10 +41,12 @@ export const List = styled.ul`
   li {
     padding: 1rem;
   }
-  @media (min-width: 700px) {
+  @media (min-width: 1200px) {
     grid-template-columns: 328px 328px;
     grid-template-rows: 204px 159px;
   }
+
+
 `;
 interface iWindStatusCard {
   degWind: number;

@@ -6,9 +6,10 @@ interface iContainer {
 
 export const Container = styled.section<iContainer>`
   width: 100%;
-  width: 100%;
+  min-height: 100vh;
   position: fixed;
-  height: 100vh;
+  overflow: hidden;
+  height: auto !important;
   background-color: ${({ theme }) => theme.colors.primary};
   padding: 1rem;
   z-index: 1001;

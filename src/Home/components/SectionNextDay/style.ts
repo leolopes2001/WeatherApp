@@ -1,28 +1,24 @@
 import styled from 'styled-components';
 
 export const ChangeBox = styled.div`
-  display: none;
-  align-self: flex-end;
-
-  @media (min-width: 1300px) {
+    align-self: flex-end;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 100%;
     margin-bottom: 1rem;
-  }
 `;
 
 export const SectionStyled = styled.section`
   background: #100e1d;
   padding: 40px;
-  height: auto;
+  // height: auto;
   display: flex;
   align-items: flex-start;
   text-align: center;
   justify-content: center;
 
-  @media (min-width: 1300px) {
+  @media (min-width: 900px) {
     grid-row: 1/2;
     grid-column: 2/3;
   }
@@ -36,10 +32,7 @@ export const List = styled.ul`
   align-items: flex-start;
   justify-content: center;
 
-  @media (min-width: 900px) {
-    flex-wrap: nowrap;
-    flex-direction: column;
-  }
+ 
   @media (min-width: 1300px) {
     flex-wrap: wrap;
     flex-direction: row;
